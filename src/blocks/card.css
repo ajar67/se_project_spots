@@ -1,3 +1,5 @@
+@import "../vendor/fonts.css";
+
 .card {
 }
 
@@ -14,10 +16,10 @@
 }
 
 .card__name {
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
