@@ -2,7 +2,7 @@
   margin: 0 80px;
 }
 
-@media screen and (min-width: 20px) and (max-width: 630px) {
+@media screen and (min-width: 320px) and (max-width: 1010px) {
   .content {
     margin: 0 20px;
   }
