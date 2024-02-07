@@ -115,3 +115,31 @@
   height: 190px;
   border-radius: 10px;
 }
+
+@media screen and (min-width: 20px) and (max-width: 630px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__image {
+    width: 80px;
+    height: 80px;
+  }
+  .profile__info {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .profile__title {
+    font-size: 20px;
+    line-height: 1;
+    padding-top: 20px;
+  }
+  .profile__edit-button {
+    padding: 40px 0 20px 0;
+  }
+  .profile__add-button {
+    width: 100%;
+  }
+}
