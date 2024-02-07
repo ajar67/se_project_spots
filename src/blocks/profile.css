@@ -1,11 +1,110 @@
-.profile{
+.profile {
   display: flex;
   align-items: center;
-  padding-top: 100px;
+  padding: 20px 0;
+  border-bottom: solid 1px #212121;
 }
 
-.profile__image{
-  background: transparent url("../images/Bessie.jpg") center no-repeat;
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "title"
+    "description"
+    "button";
+  grid-template-columns: minmax(auto, 375px);
+  align-items: start;
+  padding-left: 15px;
+}
+
+.profile__title {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 32px;
+  grid-area: title;
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  grid-area: description;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+.profile__edit-button {
+  grid-area: button;
+  cursor: pointer;
+  gap: 8px;
+  border: none;
+  background-color: transparent;
+  padding-top: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 70%;
+}
+
+.profile__edit-button:hover {
+  opacity: 100%;
+}
+
+.profile__edit-button_para {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  max-width: 84px;
+  height: 16px;
+  margin: 0;
+  color: #212121;
+}
+
+.profile__edit-button_pic {
+  width: 12px;
+}
+
+.profile__add-button {
+  background-color: black;
+  width: 157px;
+  height: 52px;
+  margin-left: auto;
+  margin-top: auto;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.profile__add-button_para {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.profile__add-button_pic {
+  width: 14px;
+}
+
+.profile__add-button:hover {
+  opacity: 60%;
+}
+
+.profile__image {
   width: 190px;
   height: 190px;
+  border-radius: 10px;
 }
