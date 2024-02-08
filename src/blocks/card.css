@@ -15,6 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 12px;
 }
 
 .card__name {
@@ -26,6 +27,7 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 320px;
+  margin: 0;
 }
 
 .card__button {
@@ -38,4 +40,16 @@
 }
 .card__button:hover {
   background: transparent url(../images/LikeHoverButton.svg) center no-repeat;
+}
+
+@media screen and (min-width: 320px) and (max-width: 879px) {
+  .card {
+    margin: 0 auto;
+  }
+  .card__image {
+    width: 100%;
+  }
+  .card__name {
+    max-width: 275px;
+  }
 }
