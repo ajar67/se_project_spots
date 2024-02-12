@@ -1,6 +1,5 @@
 .profile {
   display: flex;
-  align-items: center;
   padding: 34px 0;
   border-bottom: solid 1px rgba(33, 33, 33, 0.4);
 }
@@ -12,8 +11,7 @@
     "description"
     "button";
   grid-template-columns: minmax(auto, 375px);
-  grid-template-rows: auto 1fr auto;
-  align-items: start;
+  grid-template-rows: max-content;
   padding-left: 20px;
 }
 
@@ -58,12 +56,11 @@
   gap: 8px;
   border: none;
   background-color: transparent;
-  padding-top: 110px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   opacity: 70%;
-  width: fit-content;
+  width: max-content;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -76,7 +73,7 @@
 }
 
 .profile__edit-button-pic {
-  width: 12px;
+  width: 18.48px;
 }
 
 .profile__add-button {
@@ -116,6 +113,7 @@
   .profile {
     flex-direction: column;
     padding-bottom: 0;
+    padding-top: 20px;
   }
   .profile__image {
     width: 80px;

@@ -18,6 +18,7 @@
     grid-template-columns: repeat(1, 100%);
     align-items: center;
     margin: 20px auto;
+    row-gap: 20px;
   }
 }
 
