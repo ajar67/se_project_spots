@@ -52,5 +52,16 @@
   }
   .card__name {
     max-width: 240px;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .card__button {
+    background: transparent url(../images/LikeButtonSm.svg) center no-repeat;
+    width: 20px;
+    height: 18px;
+    opacity: 40%;
+  }
+  .card__button:hover {
+    opacity: 100%;
   }
 }

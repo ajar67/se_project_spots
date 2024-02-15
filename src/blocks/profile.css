@@ -30,6 +30,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   color: rgba(33, 33, 33, 1);
+  overflow-wrap: break-word;
 }
 
 .profile__description {
@@ -47,6 +48,7 @@
   -webkit-box-orient: vertical;
   padding-top: 10px;
   color: rgba(33, 33, 33, 0.7);
+  overflow-wrap: break-word;
 }
 
 .profile__edit-button {
@@ -100,7 +102,7 @@
 }
 
 .profile__add-button:hover {
-  color: rgba(33, 33, 33, 0.8);
+  background-color: rgba(33, 33, 33, 0.8);
 }
 
 .profile__image {
@@ -114,6 +116,8 @@
     flex-direction: column;
     padding-bottom: 0;
     padding-top: 20px;
+    justify-content: center;
+    align-items: center;
   }
   .profile__image {
     width: 80px;
@@ -130,9 +134,11 @@
   .profile__title {
     font-size: 20px;
     padding-top: 12px;
+    text-align: center;
   }
   .profile__description {
     padding-top: 6px;
+    text-align: center;
   }
   .profile__edit-button {
     padding: 32px 0 20px 0;
