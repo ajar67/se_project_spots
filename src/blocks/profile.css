@@ -28,6 +28,7 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  max-height: 3em;
   -webkit-box-orient: vertical;
   color: rgba(33, 33, 33, 1);
   overflow-wrap: break-word;
@@ -45,6 +46,7 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  max-height: 3em;
   -webkit-box-orient: vertical;
   padding-top: 10px;
   color: rgba(33, 33, 33, 0.7);
