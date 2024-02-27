@@ -1,0 +1,120 @@
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__container {
+  position: relative;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  height: 330px;
+  width: 430px;
+}
+
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 36px;
+  margin-right: 36px;
+}
+
+.modal__title {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  width: 330px;
+  height: 23px;
+}
+
+.modal__input {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  width: 358px;
+  height: 57px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.modal__button {
+  border-radius: 2px;
+  background-color: black;
+  color: white;
+  width: 358px;
+  margin-top: 48px;
+  height: 50px;
+  margin-bottom: 36.5px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  border: none;
+}
+
+.modal__button-reset {
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  background: none;
+  border: none;
+}
+
+.modal__image-close {
+  height: 40px;
+  cursor: pointer;
+}
+
+
+
+
+@media screen and (min-width: 10px) and (max-width: 600px) {
+  .modal__container {
+    height: 322px;
+    width: 282px;
+    margin: 123px auto auto auto;
+  }
+  .modal__form {
+    margin-right: 22px;
+    margin-left: 22px;
+  }
+  .modal__title {
+    font-size: 18px;
+    line-height: 22px;
+    width: 238px;
+    height: 22px;
+  }
+  .modal__input {
+    width: 238px;
+  }
+  .modal__button {
+    width: 238px;
+  }
+  .modal__button-reset {
+    left: 82.69%;
+    right: 9.18%;
+    top: 91px;
+    border: none;
+  }
+  .modal__image-close {
+    height: 26px;
+  }
+}
