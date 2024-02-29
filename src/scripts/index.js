@@ -24,16 +24,49 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
-//have to upload the icons for the close button
 const editButton = document.querySelector(".profile__edit-button");
 const profileModal = document.getElementById("profile-popup");
 const closeModal = profileModal.querySelector(".modal__button-reset");
+const nameInput = profileModal.querySelector("#name");
+const descriptionInput = profileModal.querySelector("#description");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const formSubmit = profileModal.querySelector(".modal__form");
+const template = document.getElementById("template").content;
+const cardsList = document.querySelector(".cards__list");
 
-editButton.addEventListener("click", () => {
-  console.log("it is getting here");
+function handleOpenModal() {
   profileModal.classList.add("modal_opened");
-});
-closeModal.addEventListener("click", () => {
-  console.log("it is getting here");
+  nameInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
+}
+
+function handleCloseModal() {
   profileModal.classList.remove("modal_opened");
+}
+
+editButton.addEventListener("click", handleOpenModal);
+closeModal.addEventListener("click", handleCloseModal);
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = nameInput.value;
+  profileDescription.textContent = descriptionInput.value;
+  handleCloseModal();
+}
+
+formSubmit.addEventListener("submit", handleProfileFormSubmit);
+
+function getCardElement(data) {
+  const cardElement = template.querySelector(".card").cloneNode(true);
+  const cardName = cardElement.querySelector(".card__name");
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardName.textContent = data.name;
+  return cardElement;
+}
+initialCards.forEach((card) => {
+  const newCard = getCardElement(card);
+  cardsList.appendChild(newCard);
 });
