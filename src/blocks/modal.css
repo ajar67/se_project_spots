@@ -133,33 +133,36 @@
 
 @media screen and (min-width: 10px) and (max-width: 600px) {
   .modal__container {
-    height: 322px;
-    width: 282px;
-    margin: 123px auto auto auto;
+    height: 336px;
+    width: 300px;
+    margin: 134px auto auto auto;
   }
   .modal__form {
-    margin-right: 22px;
-    margin-left: 22px;
+    margin: 12px;
+  }
+  .modal__header {
+    width: 276px;
+    padding-top: 0;
   }
   .modal__title {
-    font-size: 18px;
-    line-height: 22px;
-    width: 238px;
-    height: 22px;
+    font-size: 20px;
+    line-height: 20px;
+    width: 106px;
+    height: 20px;
+  }
+  .modal__fieldset {
+    padding: 24px 0 0 0;
+    width: 276px;
+    height: 248px;
   }
   .modal__input {
-    width: 238px;
+    width: 276px;
+    height: 48px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 16px;
   }
   .modal__button {
-    width: 238px;
-  }
-  .modal__button-reset {
-    left: 82.69%;
-    right: 9.18%;
-    top: 91px;
-    border: none;
-  }
-  .modal__image-close {
-    height: 26px;
+    width: 276px;
   }
 }
