@@ -68,6 +68,7 @@
   height: 40px;
   cursor: pointer;
   opacity: 40%;
+  cursor: pointer;
 }
 
 .modal__image-close:hover {
@@ -105,6 +106,11 @@
   margin-bottom: 32px;
   padding: 0;
   text-indent: 10px;
+  cursor: pointer;
+}
+
+.modal__input:hover {
+  border: 1px solid rgba(33, 33, 33, 1);
 }
 
 .modal__button {
@@ -114,8 +120,15 @@
   width: 156px;
   height: 52px;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
   border: none;
+}
+
+.modal__button:hover {
+  background-color: rgba(33, 33, 33, 0.8);
 }
 
 @media screen and (min-width: 10px) and (max-width: 600px) {
