@@ -47,7 +47,7 @@
     margin: 0 auto;
   }
   .card__image {
-    width: 100%;
+    width: 288px;
     height: 288px;
   }
   .card__name {
