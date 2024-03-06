@@ -56,6 +56,21 @@ const resetButtons = document.querySelectorAll(".modal__button-reset");
 
 //FUNCTIONS
 
+function getCardElement(data) {
+  const cardElement = template.querySelector(".card").cloneNode(true);
+  const cardName = cardElement.querySelector(".card__name");
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardName.textContent = data.name;
+  return cardElement;
+}
+
+initialCards.forEach((card) => {
+  const newCard = getCardElement(card);
+  cardsList.appendChild(newCard);
+});
+
 function handleOpenModal(modal) {
   modal.classList.add("modal_opened");
 }
@@ -91,18 +106,3 @@ function handleProfileFormSubmit(evt) {
   handleCloseModal(profileModal.modal);
 }
 profileModal.formSubmit.addEventListener("submit", handleProfileFormSubmit);
-
-function getCardElement(data) {
-  const cardElement = template.querySelector(".card").cloneNode(true);
-  const cardName = cardElement.querySelector(".card__name");
-  const cardImage = cardElement.querySelector(".card__image");
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
-  cardName.textContent = data.name;
-  return cardElement;
-}
-
-initialCards.forEach((card) => {
-  const newCard = getCardElement(card);
-  cardsList.appendChild(newCard);
-});
