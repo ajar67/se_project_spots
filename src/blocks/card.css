@@ -5,6 +5,26 @@
   position: relative;
 }
 
+.card__trash-button {
+  position: absolute;
+  width: 18px;
+  height: 19.3px;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+  background: transparent url("../images/trashIcon.svg") center no-repeat;
+  border: none;
+}
+
+.card__trash-button:hover {
+  border-radius: 50px;
+  background-color: orangered;
+  width: 29px;
+  height: 30.3px;
+  top: 12.5px;
+  right: 9.5px;
+}
+
 .card__image {
   max-width: 413px;
   height: 413px;

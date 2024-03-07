@@ -25,7 +25,7 @@ const initialCards = [
   },
 ];
 
-//CONSTANTS
+////////////////////////////////////////////CONSTANTS/////////////////////////////////////////////////////////////
 
 function initializeModals(modalID) {
   const modal = document.getElementById(modalID);
@@ -44,7 +44,7 @@ function initializeModals(modalID) {
 const profileModal = initializeModals("profile-popup");
 const cardModal = initializeModals("card-popup");
 
-//this is all query selectors on the document itself
+//////////////////////////this is all query selectors on the document itself///////////////////////////////////////
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const editButton = document.querySelector(".profile__edit-button");
@@ -54,7 +54,7 @@ const template = document.getElementById("template").content;
 
 const resetButtons = document.querySelectorAll(".modal__button-reset");
 
-//FUNCTIONS
+//////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////
 
 function getCardElement(data) {
   const cardElement = template.querySelector(".card").cloneNode(true);
@@ -85,7 +85,7 @@ function handleOpenProfileModal() {
   profileModal.descriptionInput.value = profileDescription.textContent;
 }
 
-//EVENT LISTENERS
+////////////////////////////////////////////EVENT LISTENERS//////////////////////////////////////////////////////////
 
 editButton.addEventListener("click", () =>
   handleOpenProfileModal(profileModal.modal)
@@ -99,6 +99,8 @@ resetButtons.forEach((button) => {
   });
 });
 
+///////////////////////////////////////////FUNCTIONS FOR ALL FORM SUBMISSIONS/////////////////////////////////////////
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileModal.nameInput.value;
@@ -106,3 +108,20 @@ function handleProfileFormSubmit(evt) {
   handleCloseModal(profileModal.modal);
 }
 profileModal.formSubmit.addEventListener("submit", handleProfileFormSubmit);
+
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+  const addingCard = getCardElement({
+    link: cardModal.linkInput.value,
+    name: cardModal.captionInput.value,
+  });
+  cardsList.prepend(addingCard);
+  handleCloseModal(cardModal.modal);
+}
+cardModal.formSubmit.addEventListener("submit", handleAddCardFormSubmit);
+
+/////////////////////////////////////FUNCTIONS FOR LIKE BUTTON AND TRASH BUTTON////////////////////////////////////////
+
+function handleDeleteCard() {
+  //remove from list
+}
