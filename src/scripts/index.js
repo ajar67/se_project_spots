@@ -60,6 +60,10 @@ function getCardElement(data) {
   const cardElement = template.querySelector(".card").cloneNode(true);
   const cardName = cardElement.querySelector(".card__name");
   const cardImage = cardElement.querySelector(".card__image");
+  const deleteCardButton = cardElement.querySelector(".card__trash-button");
+  const likeCardButton = cardElement.querySelector(".card__button");
+  deleteCardButton.addEventListener("click", () => cardElement.remove());
+  //likeCardButton.addEventListener("click", () => cardElement.classList.add(".card__button-liked")); if/else to take care of functionality
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardName.textContent = data.name;
@@ -122,6 +126,3 @@ cardModal.formSubmit.addEventListener("submit", handleAddCardFormSubmit);
 
 /////////////////////////////////////FUNCTIONS FOR LIKE BUTTON AND TRASH BUTTON////////////////////////////////////////
 
-function handleDeleteCard() {
-  //remove from list
-}
