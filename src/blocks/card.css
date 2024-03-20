@@ -7,22 +7,18 @@
 
 .card__trash-button {
   position: absolute;
-  width: 18px;
-  height: 19.3px;
+  width: 32px;
+  height: 32px;
   top: 18px;
   right: 15px;
   cursor: pointer;
-  background: transparent url("../images/trashIcon.svg") center no-repeat;
+  background: transparent url("../images/deleteIcon.svg") center no-repeat;
   border: none;
+  border-radius: 50px;
 }
 
 .card__trash-button:hover {
-  border-radius: 50px;
-  background-color: orangered;
-  width: 29px;
-  height: 30.3px;
-  top: 12.5px;
-  right: 9.5px;
+  background-color: rgba(255, 101, 101, 1);
 }
 
 .card__image {
