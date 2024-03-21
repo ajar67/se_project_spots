@@ -63,7 +63,17 @@ function getCardElement(data) {
   const deleteCardButton = cardElement.querySelector(".card__trash-button");
   const likeCardButton = cardElement.querySelector(".card__button");
   deleteCardButton.addEventListener("click", () => cardElement.remove());
-  //likeCardButton.addEventListener("click", () => cardElement.classList.add(".card__button-liked")); if/else to take care of functionality
+  likeCardButton.addEventListener("click", () => {
+    if (!likeCardButton.classList.contains("card__button-liked")) {
+      console.log("its getting here");
+      likeCardButton.classList.add("card__button-liked");
+      console.log("true");
+    } else {
+      console.log("its getting here");
+      likeCardButton.classList.remove("card__button-liked");
+      console.log("false");
+    }
+  });
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardName.textContent = data.name;
@@ -115,6 +125,8 @@ profileModal.formSubmit.addEventListener("submit", handleProfileFormSubmit);
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
+  cardModal.linkInput.value = "";
+  cardModal.captionInput.value = "";
   const addingCard = getCardElement({
     link: cardModal.linkInput.value,
     name: cardModal.captionInput.value,
@@ -125,4 +137,3 @@ function handleAddCardFormSubmit(evt) {
 cardModal.formSubmit.addEventListener("submit", handleAddCardFormSubmit);
 
 /////////////////////////////////////FUNCTIONS FOR LIKE BUTTON AND TRASH BUTTON////////////////////////////////////////
-

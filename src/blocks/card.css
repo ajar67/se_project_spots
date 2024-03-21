@@ -47,7 +47,8 @@
 }
 
 .card__button {
-  background: transparent url(../images/LikeButton.svg) center no-repeat;
+  background: transparent center no-repeat;
+  background-image: url(../images/LikeButton.svg);
   margin-left: auto;
   width: 23px;
   height: 20px;
@@ -55,7 +56,13 @@
   cursor: pointer;
 }
 .card__button:hover {
-  background: transparent url(../images/LikeHoverButton.svg) center no-repeat;
+  background-image: url(../images/LikeHoverButton.svg);
+}
+.card__button-liked {
+  background-image: url(../images/likeButtonLiked.svg);
+}
+.card__button-liked:hover {
+  background-image: url(../images/likeButtonLikedHover.svg);
 }
 
 @media screen and (min-width: 320px) and (max-width: 879px) {
