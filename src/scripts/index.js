@@ -40,9 +40,14 @@ function initializeModals(modalID) {
     const captionInput = modal.querySelector("#caption");
     return { modal, linkInput, captionInput, formSubmit };
   }
+  if (modalID === "picture-popup") {
+    const imagePopup = modal.querySelector(".modal__image-clicked");
+    return { modal, imagePopup };
+  }
 }
 const profileModal = initializeModals("profile-popup");
 const cardModal = initializeModals("card-popup");
+const pictureModal = initializeModals("picture-popup");
 
 //////////////////////////this is all query selectors on the document itself///////////////////////////////////////
 const profileTitle = document.querySelector(".profile__title");
@@ -62,6 +67,10 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".card__image");
   const deleteCardButton = cardElement.querySelector(".card__trash-button");
   const likeCardButton = cardElement.querySelector(".card__button");
+  cardElement.addEventListener("click", (evt) => {
+    pictureModal.imagePopup.src = evt.target.src;
+    handleOpenModal(pictureModal.modal);
+  });
   deleteCardButton.addEventListener("click", () => cardElement.remove());
   likeCardButton.addEventListener("click", () => {
     if (!likeCardButton.classList.contains("card__button-liked")) {
@@ -97,6 +106,10 @@ function handleOpenProfileModal() {
   handleOpenModal(profileModal.modal);
   profileModal.nameInput.value = profileTitle.textContent;
   profileModal.descriptionInput.value = profileDescription.textContent;
+}
+
+function handleOpenImagePopup() {
+  handleOpenModal(pictureModal.modal);
 }
 
 ////////////////////////////////////////////EVENT LISTENERS//////////////////////////////////////////////////////////
