@@ -60,7 +60,7 @@
         <form class="modal__form">
           <div class="modal__header">
             <h2 class="modal__title">Edit Profile</h2>
-            <button type="reset" class="modal__button-reset">
+            <button type="reset" class="modal__button-reset" id="reset-button">
               <img
                 src="./images/closeIconDefault.svg"
                 alt="Close Image"
@@ -102,7 +102,7 @@
         <form class="modal__form">
           <div class="modal__header">
             <h2 class="modal__title">New Post</h2>
-            <button type="reset" class="modal__button-reset">
+            <button type="reset" class="modal__button-reset" id="reset-button">
               <img
                 src="./images/closeIconDefault.svg"
                 alt="Close Image"
@@ -141,15 +141,21 @@
 
     <div class="modal" id="picture-popup">
       <div class="modal__image-container">
-        <button type="reset" class="modal__button-reset">
+        <img src=" " alt="" class="modal__image-clicked" />
+        <button
+          type="reset"
+          class="modal__button-reset-picture"
+          id="reset-button"
+        >
           <img
-            src="./images/closeIconDefault.svg"
+            src="./images/closeIconWhite.svg"
             alt="Close image"
             class="modal__image-close"
           />
         </button>
-        <img src=" " alt="" class="modal__image-clicked" />
-        <p class="modal__image-text"></p>
+        <div class="modal__image-text-wrapper">
+          <p class="modal__image-text"></p>
+        </div>
       </div>
     </div>
 

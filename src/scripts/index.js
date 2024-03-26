@@ -25,7 +25,9 @@ const initialCards = [
   },
 ];
 
-////////////////////////////////////////////CONSTANTS/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////CONSTANTS////////////////////////////////////////////////////////////////////
+
+////////////////initializes all modals///////////////////////
 
 function initializeModals(modalID) {
   const modal = document.getElementById(modalID);
@@ -42,24 +44,38 @@ function initializeModals(modalID) {
   }
   if (modalID === "picture-popup") {
     const imagePopup = modal.querySelector(".modal__image-clicked");
-    return { modal, imagePopup };
+    const textPopup = modal.querySelector(".modal__image-text");
+    return { modal, imagePopup, textPopup };
   }
 }
 const profileModal = initializeModals("profile-popup");
 const cardModal = initializeModals("card-popup");
 const pictureModal = initializeModals("picture-popup");
 
-//////////////////////////this is all query selectors on the document itself///////////////////////////////////////
+/////////////this is all query selectors on the document itself//////////////
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const cardsList = document.querySelector(".cards__list");
 const template = document.getElementById("template").content;
+const resetButtons = document.querySelectorAll("#reset-button");
 
-const resetButtons = document.querySelectorAll(".modal__button-reset");
+/////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////
+function handleOpenModal(modal) {
+  modal.classList.add("modal_opened");
+}
+
+function handleCloseModal(modal) {
+  modal.classList.remove("modal_opened");
+}
+
+function handleOpenProfileModal() {
+  handleOpenModal(profileModal.modal);
+  profileModal.nameInput.value = profileTitle.textContent;
+  profileModal.descriptionInput.value = profileDescription.textContent;
+}
 
 function getCardElement(data) {
   const cardElement = template.querySelector(".card").cloneNode(true);
@@ -68,7 +84,9 @@ function getCardElement(data) {
   const deleteCardButton = cardElement.querySelector(".card__trash-button");
   const likeCardButton = cardElement.querySelector(".card__button");
   cardElement.addEventListener("click", (evt) => {
+    console.log(evt.target);
     pictureModal.imagePopup.src = evt.target.src;
+    pictureModal.textPopup.textContent = evt.target.alt;
     handleOpenModal(pictureModal.modal);
   });
   deleteCardButton.addEventListener("click", () => cardElement.remove());
@@ -94,24 +112,6 @@ initialCards.forEach((card) => {
   cardsList.appendChild(newCard);
 });
 
-function handleOpenModal(modal) {
-  modal.classList.add("modal_opened");
-}
-
-function handleCloseModal(modal) {
-  modal.classList.remove("modal_opened");
-}
-
-function handleOpenProfileModal() {
-  handleOpenModal(profileModal.modal);
-  profileModal.nameInput.value = profileTitle.textContent;
-  profileModal.descriptionInput.value = profileDescription.textContent;
-}
-
-function handleOpenImagePopup() {
-  handleOpenModal(pictureModal.modal);
-}
-
 ////////////////////////////////////////////EVENT LISTENERS//////////////////////////////////////////////////////////
 
 editButton.addEventListener("click", () =>
@@ -123,6 +123,7 @@ resetButtons.forEach((button) => {
   button.addEventListener("click", () => {
     handleCloseModal(profileModal.modal);
     handleCloseModal(cardModal.modal);
+    handleCloseModal(pictureModal.modal);
   });
 });
 

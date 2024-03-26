@@ -68,7 +68,6 @@
   height: 40px;
   cursor: pointer;
   opacity: 40%;
-  cursor: pointer;
 }
 
 .modal__image-close:hover {
@@ -142,18 +141,32 @@
   max-width: 75vw;
 }
 
+.modal__image-text-wrapper {
+  width: max-content;
+  height: 32px;
+  margin-top: 8px;
+  background-color: rgba(33, 33, 33, 1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+}
+
 .modal__image-text {
-  width: 291px;
-  height: 12px;
-  left: 424px;
-  top: 640px;
+  margin: 0;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   color: rgba(255, 255, 255, 1);
-  background-color: rgba(33, 33, 33, 1);
-  border-radius: 8px;
+  display: flex;
+}
+
+.modal__button-reset-picture {
+  background: none;
+  border: none;
+  position: absolute;
+  padding: 0 0 0 12.5px;
 }
 
 @media screen and (min-width: 10px) and (max-width: 600px) {
