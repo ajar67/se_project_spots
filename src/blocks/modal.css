@@ -139,6 +139,7 @@
   width: 100%;
   max-height: 75vh;
   max-width: 75vw;
+  border-radius: 10px;
 }
 
 .modal__image-text-wrapper {
@@ -202,5 +203,19 @@
   }
   .modal__button {
     width: 276px;
+  }
+  .modal__image-container {
+    height: auto;
+    width: 288px;
+    padding-left: 3px;
+  }
+  .modal__button-reset-picture {
+    padding: 0;
+    top: -48px;
+    right: 0px;
+  }
+  .modal__image-clicked {
+    max-height: 100vh;
+    max-width: 100vh;
   }
 }

@@ -83,8 +83,7 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".card__image");
   const deleteCardButton = cardElement.querySelector(".card__trash-button");
   const likeCardButton = cardElement.querySelector(".card__button");
-  cardElement.addEventListener("click", (evt) => {
-    console.log(evt.target);
+  cardImage.addEventListener("click", (evt) => {
     pictureModal.imagePopup.src = evt.target.src;
     pictureModal.textPopup.textContent = evt.target.alt;
     handleOpenModal(pictureModal.modal);
@@ -139,13 +138,13 @@ profileModal.formSubmit.addEventListener("submit", handleProfileFormSubmit);
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
-  cardModal.linkInput.value = "";
-  cardModal.captionInput.value = "";
   const addingCard = getCardElement({
     link: cardModal.linkInput.value,
     name: cardModal.captionInput.value,
   });
   cardsList.prepend(addingCard);
+  cardModal.linkInput.value = "";
+  cardModal.captionInput.value = "";
   handleCloseModal(cardModal.modal);
 }
 cardModal.formSubmit.addEventListener("submit", handleAddCardFormSubmit);
