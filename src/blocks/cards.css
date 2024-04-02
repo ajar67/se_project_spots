@@ -15,7 +15,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 879px) {
   .cards__list {
-    grid-template-columns: repeat(1, 100%);
+    grid-template-columns: repeat(1, 288px);
     align-items: center;
     margin: 20px auto;
     row-gap: 20px;
