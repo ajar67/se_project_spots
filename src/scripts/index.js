@@ -85,30 +85,27 @@ function getCardElement(data) {
   const likeCardButton = cardElement.querySelector(".card__button");
   cardImage.addEventListener("click", (evt) => {
     pictureModal.imagePopup.src = evt.target.src;
+    pictureModal.imagePopup.alt = evt.target.alt;
     pictureModal.textPopup.textContent = evt.target.alt;
     handleOpenModal(pictureModal.modal);
   });
   deleteCardButton.addEventListener("click", () => cardElement.remove());
-  likeCardButton.addEventListener("click", () => {
-    if (!likeCardButton.classList.contains("card__button-liked")) {
-      console.log("its getting here");
-      likeCardButton.classList.add("card__button-liked");
-      console.log("true");
-    } else {
-      console.log("its getting here");
-      likeCardButton.classList.remove("card__button-liked");
-      console.log("false");
-    }
-  });
+  likeCardButton.addEventListener("click", () =>
+    likeCardButton.classList.toggle("card__button-liked")
+  );
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardName.textContent = data.name;
   return cardElement;
 }
 
-initialCards.forEach((card) => {
+function renderCard(card, method = "prepend") {
   const newCard = getCardElement(card);
-  cardsList.appendChild(newCard);
+  cardsList[method](newCard);
+}
+
+initialCards.forEach((card) => {
+  renderCard(card, "append");
 });
 
 ////////////////////////////////////////////EVENT LISTENERS//////////////////////////////////////////////////////////
@@ -120,9 +117,8 @@ addButton.addEventListener("click", () => handleOpenModal(cardModal.modal));
 
 resetButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    handleCloseModal(profileModal.modal);
-    handleCloseModal(cardModal.modal);
-    handleCloseModal(pictureModal.modal);
+    const popup = button.closest(".modal");
+    handleCloseModal(popup);
   });
 });
 
@@ -138,15 +134,12 @@ profileModal.formSubmit.addEventListener("submit", handleProfileFormSubmit);
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
-  const addingCard = getCardElement({
+  renderCard({
     link: cardModal.linkInput.value,
     name: cardModal.captionInput.value,
   });
-  cardsList.prepend(addingCard);
   cardModal.linkInput.value = "";
   cardModal.captionInput.value = "";
   handleCloseModal(cardModal.modal);
 }
 cardModal.formSubmit.addEventListener("submit", handleAddCardFormSubmit);
-
-/////////////////////////////////////FUNCTIONS FOR LIKE BUTTON AND TRASH BUTTON////////////////////////////////////////
