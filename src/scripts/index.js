@@ -27,30 +27,43 @@ const initialCards = [
 
 ////////////////////////////////////////////////////////CONSTANTS////////////////////////////////////////////////////////////////////
 
-////////////////initializes all modals///////////////////////
+//// profile modal ////
+const profileModal = document.getElementById("profile-popup");
+const descriptionInput = profileModal.querySelector("#description");
+const nameInput = profileModal.querySelector("#name");
+const profileFormSubmit = profileModal.querySelector(".modal__form");
+//// card modal ////
+const cardModal = document.getElementById("card-popup");
+const linkInput = cardModal.querySelector("#link");
+const captionInput = cardModal.querySelector("#caption");
+const cardFormSubmit = cardModal.querySelector(".modal__form");
+//// picture modal ////
+const pictureModal = document.getElementById("picture-popup");
+const imagePopup = pictureModal.querySelector(".modal__image-clicked");
+const textPopup = pictureModal.querySelector(".modal__image-text");
 
-function initializeModals(modalID) {
-  const modal = document.getElementById(modalID);
-  const formSubmit = modal.querySelector(".modal__form");
-  if (modalID === "profile-popup") {
-    const descriptionInput = modal.querySelector("#description");
-    const nameInput = modal.querySelector("#name");
-    return { modal, descriptionInput, nameInput, formSubmit };
-  }
-  if (modalID === "card-popup") {
-    const linkInput = modal.querySelector("#link");
-    const captionInput = modal.querySelector("#caption");
-    return { modal, linkInput, captionInput, formSubmit };
-  }
-  if (modalID === "picture-popup") {
-    const imagePopup = modal.querySelector(".modal__image-clicked");
-    const textPopup = modal.querySelector(".modal__image-text");
-    return { modal, imagePopup, textPopup };
-  }
-}
-const profileModal = initializeModals("profile-popup");
-const cardModal = initializeModals("card-popup");
-const pictureModal = initializeModals("picture-popup");
+// function initializeModals(modalID) {
+//   const modal = document.getElementById(modalID);
+//   const formSubmit = modal.querySelector(".modal__form");
+//   if (modalID === "profile-popup") {
+//     const descriptionInput = modal.querySelector("#description");
+//     const nameInput = modal.querySelector("#name");
+//     return { modal, descriptionInput, nameInput, formSubmit };
+//   }
+//   if (modalID === "card-popup") {
+//     const linkInput = modal.querySelector("#link");
+//     const captionInput = modal.querySelector("#caption");
+//     return { modal, linkInput, captionInput, formSubmit };
+//   }
+//   if (modalID === "picture-popup") {
+//     const imagePopup = modal.querySelector(".modal__image-clicked");
+//     const textPopup = modal.querySelector(".modal__image-text");
+//     return { modal, imagePopup, textPopup };
+//   }
+// }
+//const profileModal = initializeModals("profile-popup");
+//const cardModal = initializeModals("card-popup");
+//const pictureModal = initializeModals("picture-popup");
 
 /////////////this is all query selectors on the document itself//////////////
 const profileTitle = document.querySelector(".profile__title");
@@ -72,9 +85,9 @@ function handleCloseModal(modal) {
 }
 
 function handleOpenProfileModal() {
-  handleOpenModal(profileModal.modal);
-  profileModal.nameInput.value = profileTitle.textContent;
-  profileModal.descriptionInput.value = profileDescription.textContent;
+  handleOpenModal(profileModal);
+  nameInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
 }
 
 function getCardElement(data) {
@@ -84,10 +97,10 @@ function getCardElement(data) {
   const deleteCardButton = cardElement.querySelector(".card__trash-button");
   const likeCardButton = cardElement.querySelector(".card__button");
   cardImage.addEventListener("click", (evt) => {
-    pictureModal.imagePopup.src = evt.target.src;
-    pictureModal.imagePopup.alt = evt.target.alt;
-    pictureModal.textPopup.textContent = evt.target.alt;
-    handleOpenModal(pictureModal.modal);
+    imagePopup.src = evt.target.src;
+    imagePopup.alt = evt.target.alt;
+    textPopup.textContent = evt.target.alt;
+    handleOpenModal(pictureModal);
   });
   deleteCardButton.addEventListener("click", () => cardElement.remove());
   likeCardButton.addEventListener("click", () =>
@@ -111,9 +124,9 @@ initialCards.forEach((card) => {
 ////////////////////////////////////////////EVENT LISTENERS//////////////////////////////////////////////////////////
 
 editButton.addEventListener("click", () =>
-  handleOpenProfileModal(profileModal.modal)
+  handleOpenProfileModal(profileModal)
 );
-addButton.addEventListener("click", () => handleOpenModal(cardModal.modal));
+addButton.addEventListener("click", () => handleOpenModal(cardModal));
 
 resetButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -126,20 +139,20 @@ resetButtons.forEach((button) => {
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = profileModal.nameInput.value;
-  profileDescription.textContent = profileModal.descriptionInput.value;
-  handleCloseModal(profileModal.modal);
+  profileTitle.textContent = nameInput.value;
+  profileDescription.textContent = descriptionInput.value;
+  handleCloseModal(profileModal);
 }
-profileModal.formSubmit.addEventListener("submit", handleProfileFormSubmit);
+profileFormSubmit.addEventListener("submit", handleProfileFormSubmit);
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   renderCard({
-    link: cardModal.linkInput.value,
-    name: cardModal.captionInput.value,
+    link: linkInput.value,
+    name: captionInput.value,
   });
-  cardModal.linkInput.value = "";
-  cardModal.captionInput.value = "";
-  handleCloseModal(cardModal.modal);
+  linkInput.value = "";
+  captionInput.value = "";
+  handleCloseModal(cardModal);
 }
-cardModal.formSubmit.addEventListener("submit", handleAddCardFormSubmit);
+cardFormSubmit.addEventListener("submit", handleAddCardFormSubmit);
